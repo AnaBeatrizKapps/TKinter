@@ -1,0 +1,6 @@
+feature: counting test
+
+Scenario Outline: house
+Given there is a "cake" with "chocolatetopping" "15"
+When I "bank" the "chocolatetopping"
+Then I should have "None"
