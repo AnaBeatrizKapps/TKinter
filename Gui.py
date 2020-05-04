@@ -13,17 +13,38 @@ class Gui:
     parameter = '' #peso parâmetro
     selectionFunction = '' #numero da função de similaridade
     filenameTXT = '' #camingo do arquivo gherkin selectionado
+
+    def criarProjetoTxt(self):
+        print("Inserir nome do arquivo (colocar .txt no final)")
+        nome = input()
+        if len(nome) > 2 and nome.__contains__(".txt"):
+            f = open(nome, "w+")
+            f.close()
+
+    def abrirProjetoTxt(self):
+        print("Selecionar projeto para abrir")
+        root = Tk()
+        root.filename = filedialog.askopenfilename(initialdir="/",
+                                                   title="Select A Project",
+                                                   filetypes=(("text files", "*.txt"), ("all files", "*.*")))
+        print(root.filename)
+
+    def abrirDiretorio(self):
+        root = Tk()
+        root.directory = filedialog.askdirectory()
+        print(root.directory)
+
     def __init__(self, master):
         self.master = master
         self.initUI()
 
         menubar = Menu(self.master)
         filemenu = Menu(menubar, tearoff=0)
-        filemenu.add_command(label="New Project", command=lambda:[self.master.quit])
+        filemenu.add_command(label="New Project", command=lambda: self.criarProjetoTxt())
         filemenu.add_command(label="New File", command=self.master.quit)
         filemenu.add_separator()
-        filemenu.add_command(label="Open Project", command=self.master.quit)
-        filemenu.add_command(label="Open File", command=self.master.quit)
+        filemenu.add_command(label="Open Project", command=lambda: self.abrirProjetoTxt())
+        filemenu.add_command(label="Open File", command=lambda: self.abrirDiretorio())
         filemenu.add_separator()
         filemenu.add_command(label="Exit", command=self.master.quit)
         menubar.add_cascade(label="File", menu=filemenu)
