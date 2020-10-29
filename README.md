@@ -3,11 +3,12 @@
 ## Execução
 **1.** Instale NLTK:
 
-`$ pip install nltk`
+**Linux:**
+`sudo pip install -U nltk`
+ou para versão do Python3
+`sudo pip3 install -U nltk`
 
-ou para versão do Python 3:
-
-`$ pip3 install nltk`
+**Linux:** `$ pip install nltk`
 
 **2.** Instale Spacy: 
 
