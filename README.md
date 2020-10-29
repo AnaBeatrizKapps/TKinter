@@ -9,6 +9,8 @@ ou para versão do Python3
 `sudo pip3 install -U nltk`
 
 **Windows:** `$ pip install nltk`
+ou para versão do Python 3 
+`$ pip3 install nltk`
 
 **2.** Instale Spacy: 
 
